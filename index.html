@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/fdcc746a58.js" crossorigin="anonymous"></script>
+    <title>Neumorphism</title>
+    <style>
+        body {
+            background-color: #ddd;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        .botao {
+            color: #aaa;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            box-shadow:  6px 6px 12px #bcbcbc, 
+                        -6px -6px 12px #fefefe;
+        }
+        .active {
+            border-radius: 7px;
+            box-shadow: inset 6px 6px 12px #bcbcbc, 
+                        inset -6px -6px 12px #fefefe;
+        }
+        .botao-red.active {
+            animation-duration: 0.2s;
+            animation-name: activateRed;
+            animation-timing-function: cubic-bezier(0.42,0,0.58,1);
+            animation-fill-mode: forwards;
+        }
+        .botao-blue.active {
+            color: blue;
+            background-color: #c7cce0;
+        }
+        .botao-yellow.active {
+            color: #ffbe00;
+            background-color: #e0dfb1;
+        }
+        @keyframes activateRed {
+            from {
+                width: 50px;
+                height: 50px;
+                color: #aaa;
+                background-color: #ddd;
+                border-radius: 10px;
+                box-shadow:  6px 6px 12px #bcbcbc, 
+                            -6px -6px 12px #fefefe;
+            }
+
+            to {
+                width: 48px;
+                height: 48px;
+                color: red;
+                background-color: #e0c7c7;
+                border-radius: 7px;
+                box-shadow: inset 6px 6px 12px #bcbcbc, 
+                            inset -6px -6px 12px #fefefe;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="botao botao-red">
+            <i class="fas fa-heart"></i>
+        </div>
+        <!-- <div class="botao botao-blue">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="botao botao-yellow">
+            <i class="fas fa-star"></i>
+        </div> -->
+    </div>
+
+    <script>
+        let botoes = document.getElementsByClassName('botao')
+
+        for (let i=0; i < botoes.length; i++) {
+
+            botoes[i].addEventListener('click', function () {
+                let classes = this.classList.value.split(' ')
+
+                let index_ative = classes.indexOf('active')
+
+                if (index_ative !== -1) {
+                    delete classes[index_ative]
+                } else {
+                    classes.push('active')
+                }
+
+                this.classList.value = classes.join(' ')
+            });
+        }
+    </script>
+</body>
+</html>
