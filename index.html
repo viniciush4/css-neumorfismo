@@ -6,7 +6,6 @@
     <script src="https://kit.fontawesome.com/fdcc746a58.js" crossorigin="anonymous"></script>
     <title>Neumorphism</title>
     <style>
-
         /**
          * PÁGINA
          */
@@ -95,8 +94,7 @@
         }
         @keyframes activateRed {
             from {
-                color: #aaa;
-                background-color: #ddd;
+
             }
             to {
                 color: red;
@@ -109,21 +107,73 @@
                 background-color: #e0c7c7;
             }
             to {
-                color: #aaa;
-                background-color: #ddd;
+
             }
         }
 
-
-        /* .botao-blue.active {
-            color: blue;
-            background-color: #c7cce0;
+        /**
+         * BOTÃO AZUL
+         */
+         .botao-blue.active {
+            animation: 
+                activateBlue 0.2s cubic-bezier(0.42,0,0.58,1) forwards, 
+                activateButton 0.2s cubic-bezier(0.42,0,0.58,1) forwards;
         }
-        .botao-yellow.active {
-            color: #ffbe00;
-            background-color: #e0dfb1;
-        } */
+        .botao-blue.inactive {
+            animation: 
+                inactivateBlue 0.2s cubic-bezier(0.42,0,0.58,1) forwards, 
+                inactivateButton 0.2s cubic-bezier(0.42,0,0.58,1) forwards;
+        }
+        @keyframes activateBlue {
+            from {
 
+            }
+            to {
+                color: blue;
+                background-color: #c7cce0;
+            }
+        }
+        @keyframes inactivateBlue {
+            from {
+                color: blue;
+                background-color: #c7cce0;
+            }
+            to {
+
+            }
+        }
+
+        /**
+         * BOTÃO AMARELO
+         */
+         .botao-yellow.active {
+            animation: 
+                activateYellow 0.2s cubic-bezier(0.42,0,0.58,1) forwards, 
+                activateButton 0.2s cubic-bezier(0.42,0,0.58,1) forwards;
+        }
+        .botao-yellow.inactive {
+            animation: 
+                inactivateYellow 0.2s cubic-bezier(0.42,0,0.58,1) forwards, 
+                inactivateButton 0.2s cubic-bezier(0.42,0,0.58,1) forwards;
+        }
+        @keyframes activateYellow {
+            from {
+
+            }
+            to {
+                color: yellow;
+                background-color: #e0dfb1;
+            }
+        }
+        @keyframes inactivateYellow {
+            from {
+                color: yellow;
+                background-color: #e0dfb1;
+            }
+            to {
+
+            }
+        }
     </style>
 </head>
 <body>
@@ -131,12 +181,12 @@
         <div class="botao botao-red">
             <i class="fas fa-heart"></i>
         </div>
-        <!-- <div class="botao botao-blue">
+        <div class="botao botao-blue">
             <i class="fas fa-crown"></i>
         </div>
         <div class="botao botao-yellow">
             <i class="fas fa-star"></i>
-        </div> -->
+        </div>
     </div>
 
     <script>
