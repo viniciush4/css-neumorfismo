@@ -40,18 +40,90 @@
                         -6px -6px 12px #fefefe;
             
         }
+        @keyframes activateButton {
+            from {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+                border-radius: 10px;
+                box-shadow:  6px 6px 12px #bcbcbc, 
+                            -6px -6px 12px #fefefe;
+            }
+            50% {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+                border-radius: 8px;
+            }
+            to {
+                width: 48px;
+                height: 48px;
+                font-size: 17px;
+                border-radius: 9px;
+                box-shadow: inset 6px 6px 12px #bcbcbc, 
+                            inset -6px -6px 12px #fefefe;
+            }
+        }
+        @keyframes inactivateButton {
+            from {
+                width: 48px;
+                height: 48px;
+                font-size: 17px;
+                border-radius: 9px;
+                box-shadow: inset 6px 6px 12px #bcbcbc, 
+                            inset -6px -6px 12px #fefefe;
+            }
+            50% {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+                border-radius: 8px;
+            }
+            to {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+                border-radius: 10px;
+                box-shadow:  6px 6px 12px #bcbcbc, 
+                            -6px -6px 12px #fefefe;
+            }
+        }
+
+        /**
+         * BOTÃO VERMELHO
+         */
         .botao-red.active {
-            animation-duration: 0.2s;
-            animation-name: activateRed;
-            animation-timing-function: cubic-bezier(0.42,0,0.58,1);
-            animation-fill-mode: forwards;
+            animation: 
+                activateRed 0.2s cubic-bezier(0.42,0,0.58,1) forwards, 
+                activateButton 0.2s cubic-bezier(0.42,0,0.58,1) forwards;
         }
         .botao-red.inactive {
-            animation-duration: 0.2s;
-            animation-name: inactivateRed;
-            animation-timing-function: cubic-bezier(0.42,0,0.58,1);
-            animation-fill-mode: forwards;
+            animation: 
+                inactivateRed 0.2s cubic-bezier(0.42,0,0.58,1) forwards, 
+                inactivateButton 0.2s cubic-bezier(0.42,0,0.58,1) forwards;
         }
+        @keyframes activateRed {
+            from {
+                color: #aaa;
+                background-color: #ddd;
+            }
+            to {
+                color: red;
+                background-color: #e0c7c7;
+            }
+        }
+        @keyframes inactivateRed {
+            from {
+                color: red;
+                background-color: #e0c7c7;
+            }
+            to {
+                color: #aaa;
+                background-color: #ddd;
+            }
+        }
+
+
         /* .botao-blue.active {
             color: blue;
             background-color: #c7cce0;
@@ -60,67 +132,6 @@
             color: #ffbe00;
             background-color: #e0dfb1;
         } */
-        @keyframes activateRed {
-            from {
-                width: 50px;
-                height: 50px;
-                color: #aaa;
-                background-color: #ddd;
-                font-size: 18px;
-                border-radius: 10px;
-                box-shadow:  6px 6px 12px #bcbcbc, 
-                            -6px -6px 12px #fefefe;
-            }
-
-            50% {
-                width: 45px;
-                height: 45px;
-                font-size: 16px;
-                border-radius: 8px;
-            }
-
-            to {
-                width: 48px;
-                height: 48px;
-                color: red;
-                background-color: #e0c7c7;
-                font-size: 17px;
-                border-radius: 9px;
-                box-shadow: inset 6px 6px 12px #bcbcbc, 
-                            inset -6px -6px 12px #fefefe;
-            }
-        }
-
-        @keyframes inactivateRed {
-            from {
-                width: 48px;
-                height: 48px;
-                color: red;
-                background-color: #e0c7c7;
-                font-size: 17px;
-                border-radius: 9px;
-                box-shadow: inset 6px 6px 12px #bcbcbc, 
-                            inset -6px -6px 12px #fefefe;
-            }
-
-            50% {
-                width: 45px;
-                height: 45px;
-                font-size: 16px;
-                border-radius: 8px;
-            }
-
-            to {
-                width: 50px;
-                height: 50px;
-                color: #aaa;
-                background-color: #ddd;
-                font-size: 18px;
-                border-radius: 10px;
-                box-shadow:  6px 6px 12px #bcbcbc, 
-                            -6px -6px 12px #fefefe;
-            }
-        }
 
     </style>
 </head>
