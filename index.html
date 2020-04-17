@@ -18,6 +18,7 @@
 
         }
         .botao {
+            cursor: pointer;
             color: #aaa;
             margin: 20px;
             display: flex;
@@ -25,38 +26,53 @@
             align-items: center;
             width: 50px;
             height: 50px;
+            font-size: 18px;
             border-radius: 10px;
             box-shadow:  6px 6px 12px #bcbcbc, 
                         -6px -6px 12px #fefefe;
+            
         }
-        .active {
+        /* .active {
             border-radius: 7px;
             box-shadow: inset 6px 6px 12px #bcbcbc, 
                         inset -6px -6px 12px #fefefe;
-        }
+        } */
         .botao-red.active {
             animation-duration: 0.2s;
             animation-name: activateRed;
             animation-timing-function: cubic-bezier(0.42,0,0.58,1);
             animation-fill-mode: forwards;
         }
-        .botao-blue.active {
+        .botao-red.inactive {
+            animation-duration: 0.2s;
+            animation-name: inactivateRed;
+            animation-timing-function: cubic-bezier(0.42,0,0.58,1);
+            animation-fill-mode: forwards;
+        }
+        /* .botao-blue.active {
             color: blue;
             background-color: #c7cce0;
         }
         .botao-yellow.active {
             color: #ffbe00;
             background-color: #e0dfb1;
-        }
+        } */
         @keyframes activateRed {
             from {
                 width: 50px;
                 height: 50px;
                 color: #aaa;
                 background-color: #ddd;
+                font-size: 18px;
                 border-radius: 10px;
                 box-shadow:  6px 6px 12px #bcbcbc, 
                             -6px -6px 12px #fefefe;
+            }
+
+            50% {
+                width: 45px;
+                height: 45px;
+                font-size: 10px;
             }
 
             to {
@@ -64,9 +80,40 @@
                 height: 48px;
                 color: red;
                 background-color: #e0c7c7;
+                font-size: 15px;
                 border-radius: 7px;
                 box-shadow: inset 6px 6px 12px #bcbcbc, 
                             inset -6px -6px 12px #fefefe;
+            }
+        }
+
+        @keyframes inactivateRed {
+            from {
+                width: 48px;
+                height: 48px;
+                color: red;
+                background-color: #e0c7c7;
+                font-size: 15px;
+                border-radius: 7px;
+                box-shadow: inset 6px 6px 12px #bcbcbc, 
+                            inset -6px -6px 12px #fefefe;
+            }
+
+            50% {
+                width: 45px;
+                height: 45px;
+                font-size: 10px;
+            }
+
+            to {
+                width: 50px;
+                height: 50px;
+                color: #aaa;
+                background-color: #ddd;
+                font-size: 18px;
+                border-radius: 10px;
+                box-shadow:  6px 6px 12px #bcbcbc, 
+                            -6px -6px 12px #fefefe;
             }
         }
 
@@ -94,10 +141,13 @@
                 let classes = this.classList.value.split(' ')
 
                 let index_ative = classes.indexOf('active')
+                let index_inative = classes.indexOf('inactive')
 
                 if (index_ative !== -1) {
                     delete classes[index_ative]
+                    classes.push('inactive')
                 } else {
+                    delete classes[index_inative]
                     classes.push('active')
                 }
 
